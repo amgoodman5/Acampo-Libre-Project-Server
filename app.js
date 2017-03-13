@@ -10,6 +10,7 @@ var dotenv = require("dotenv").config();
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var campsiteAPI = require('./api/campsiteAPI');
 
 var app = express();
 
@@ -27,6 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/campsiteAPI', campsiteAPI);
+app.use('/campsiteAPI', campsiteAPI);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

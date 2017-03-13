@@ -1,8 +1,4 @@
 
-
-
-
-
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('campsite', (table) => {
     table.increments();

@@ -8,7 +8,9 @@ exports.up = function(knex, Promise) {
     table.datetime('date').notNullable();
     table.string('bio');
     table.string('profile_pic');
-    table.integer('role_id').references("role.id").unsigned().onDelete('CASCADE');
+    table.boolean('admin').defaultTo(false);
+    table.boolean('visitor').defaultTo(true);
+    table.boolean('member').defaultTo(false);
   });
 };
 
