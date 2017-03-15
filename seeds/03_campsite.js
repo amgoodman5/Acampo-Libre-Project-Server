@@ -10,7 +10,6 @@ exports.seed = function(knex, Promise) {
         picture: 'picture',
         confirmed: false,
         video_url: '',
-        member_id: 2,
         location_id:1
 
       }, {
@@ -21,8 +20,7 @@ exports.seed = function(knex, Promise) {
         picture: 'picture',
         confirmed: true,
         video_url: '',
-        member_id: 1,
-        location_id:1
+        location_id:2
 
       }];
       return knex('campsite').insert(campsites);
