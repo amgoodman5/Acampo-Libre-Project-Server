@@ -61,4 +61,35 @@ router.post('/signup', (req, res, next) => {
     }
 });
 
+
+router.post('/login', (req, res, next) => {
+  if(validUser(req.body)){
+    //check to see if in db
+Member.getOneByEmail(req.body.email)
+.then(member => {
+  console.log('member', member)
+  if(member){
+    //compare pass word with hashed password
+    bcrypt.compare(req.body.password, member.password)
+    .then((result) => {
+      if(result){
+//setting the set-cookie header
+        res.cookie('member_id', member.id)
+        res.json({
+        result,
+        message:'Logged in 🔓...'
+        });
+      }else{
+        next(new Error('invalid login'));
+      }
+    });
+  } else {
+    next(new Error('Invalid login'));
+  }
+});
+  }else{
+    next(new Error('invalid login'));
+  }
+});
+
 module.exports = router;
