@@ -1,12 +1,27 @@
 var express = require('express');
 var router = express.Router();
+var Member = require('../db/member');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/request', function(req, res, next) {
+    queries.getRequestsByUser(req.signedCookies.userID)
+        .then((data) => {
+            res.json(data);
+        });
 });
 
-module.exports = router;
+router.get('/job', function(req, res, next) {
+    queries.getJobsByUser(req.signedCookies.userID)
+        .then((data) => {
+            res.json(data);
+        });
+});
+
+router.get('/', function(req, res, next) {
+    queries.getOneUser(req.signedCookies.userID[0])
+        .then((data) => {
+            res.json(data);
+        });
+});
 
 
 

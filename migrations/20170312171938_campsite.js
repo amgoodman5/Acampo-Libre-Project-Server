@@ -4,11 +4,14 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.string('name').notNullable().unique();
     table.string('type').notNullable();
-    table.string('description')
+    table.string('description');
     table.string('picture');
     table.boolean('confirmed').defaultTo(false);
     table.string('video_url');
-    table.integer('location_id').references("location.id").unsigned().onDelete('CASCADE');
+    table.string('address').notNullable();
+    table.string('state').notNullable();
+    table.string('lat');
+    table.string('long');
 
   });
 

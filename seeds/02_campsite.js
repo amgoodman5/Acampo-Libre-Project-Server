@@ -10,7 +10,10 @@ exports.seed = function(knex, Promise) {
         picture: 'picture',
         confirmed: false,
         video_url: '',
-        location_id:1
+        address:'1644 Platte St',
+        state:'CO',
+        lat:39.7576,
+        long:105.0070
 
       }, {
         id: 2,
@@ -20,7 +23,10 @@ exports.seed = function(knex, Promise) {
         picture: 'picture',
         confirmed: true,
         video_url: '',
-        location_id:2
+        address:'16sdfasdfa',
+        state:'CO',
+        lat:39.7666,
+        long:105.0070
 
       }];
       return knex('campsite').insert(campsites);

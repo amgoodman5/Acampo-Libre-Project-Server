@@ -13,11 +13,7 @@ module.exports = {
              .select()
 
   },
-  getAllMembers: function(id){
-    return knex('member')
-             .select()
 
-  },
   getCampsiteByUser: function(id){
     return knex('campsite')
              .select()
@@ -37,35 +33,14 @@ module.exports = {
           .where('id', id)
           .first()
   },
-  getSingleMemberById: function(id){
-      return knex('member')
-          .select()
-          .where('id', id)
-          .first()
-  },
+
   getCommentMemberById: function(id){
       return knex('comment')
           .select()
           .where('id', id)
           .first()
   },
-  getCampsiteLocation: function(){
-    return knex('campsite')
-      .select(
-          'campsite.id',
-          'campsite.name',
-          'campsite.type',
-          'campsite.description',
-          'campsite.picture',
-          'video_url',
-          'location.address',
-          'location.state',
-          'location.lat',
-          'location.long'
-        )
-      .join('location', 'location.id', 'campsite.location_id')
-      //  .where('location.id', 'campsite.location_id')
-  },
+
   createNewCampsite: function(body) {
       return knex('campsite')
           .insert(body, 'id')
