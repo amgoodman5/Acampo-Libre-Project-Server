@@ -17,5 +17,12 @@ getOneByEmail: function(email){
      return knex('member')
      .where('email', email)
      .first();
+},
+
+create: function(member){
+  return knex('member').insert(member, 'id')
+  .then(ids => {
+    return ids[0];
+  });
 }
 }

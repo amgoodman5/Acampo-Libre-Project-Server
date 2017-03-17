@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Member = require('../db/member');
 
+const bcrypt = require('bcrypt')
 
 router.get('/', (req, res) => {
     res.json({
@@ -24,11 +25,34 @@ router.post('/signup', (req, res, next) => {
             .then(member => {
                 console.log('member', member)
                 if (!member) {
-                    res.json({
-                        member,
-                        message: '😱'
-                    });
+
+
+                  //hash password
+                  bcrypt.hash(req.body.password, 10 )
+                  .then((hash) => {
+
+                  //newmemeber
+                    const member = {
+                      username:req.body.username,
+                      email:req.body.email,
+                      date: new Date(),
+                      password:hash
+
+                    };
+
+                    Member.create(member)
+                    .then( id =>{
+                      res.json({
+                          id,
+                          message: '😱'
+                      });
+                    })
+                  //insert user into db
+                  //redirect
+
+                  });
                 } else {
+                  //email in use
                     next(new Error('Email in use'));
                 }
             });
