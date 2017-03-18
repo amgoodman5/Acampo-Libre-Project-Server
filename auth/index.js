@@ -74,13 +74,18 @@ Member.getOneByEmail(req.body.email)
     .then((result) => {
       if(result){
 //setting the set-cookie header
-        res.cookie('member_id', member.id)
+     const isSecure = req.app.get('env') != 'development';
+        res.cookie('member_id', member.id, {
+          httpOny:true,
+          secure:isSecure,
+          signed:true
+
+        });
         res.json({
-        result,
         message:'Logged in 🔓...'
         });
       }else{
-        next(new Error('invalid login'));
+        next(new Error('Invalid login'));
       }
     });
   } else {
