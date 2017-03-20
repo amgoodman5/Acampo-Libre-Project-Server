@@ -10,6 +10,17 @@ router.get('/', (req, res) => {
         });
 });
 
+router.post('/', (req, res) => {
+    queries.createNewLocation(req.body)
+      .then((id) => {
+          res.json(id)
+      })
+      .catch((err) => {
+          res.send(err);
+      });
+
+});
+
 module.exports = router;
 
 

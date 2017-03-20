@@ -37,7 +37,7 @@ app.use('/users', users);
 
 app.use('/api/v1/campsites', campsites);
 app.use('/auth', auth);
-app.use('/location', location)
+app.use('/location', location);
 
 
 // catch 404 and forward to error handler

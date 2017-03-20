@@ -6,6 +6,11 @@ exports.up = function(knex, Promise) {
     table.float('longitude');
     table.string('name');
     table.string('state');
+    table.string('type').notNullable();
+    table.string('description');
+    table.string('picture');
+    table.boolean('confirmed').defaultTo(false);
+    table.string('video_url');
   });
 
 };
