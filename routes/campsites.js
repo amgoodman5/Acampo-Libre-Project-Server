@@ -29,5 +29,11 @@ router.post('/', function(req, res) {
 
 });
 
+router.delete('/:id', function(req, res) {
+    queries.deleteCampsite(req.body.id)
+        .then(() => {
+            res.json('Campsite Deleted');
+        });
+});
 
 module.exports = router;

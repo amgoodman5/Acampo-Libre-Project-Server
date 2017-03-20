@@ -8,10 +8,7 @@ exports.up = function(knex, Promise) {
     table.string('picture');
     table.boolean('confirmed').defaultTo(false);
     table.string('video_url');
-    table.string('address').notNullable();
-    table.string('state').notNullable();
-    table.string('lat');
-    table.string('long');
+
 
   });
 

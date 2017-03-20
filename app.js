@@ -12,6 +12,7 @@ var auth = require('./auth')
 var campsites = require('./routes/campsites');
 var index = require('./routes/index');
 var users = require('./routes/users');
+var location = require('./routes/location')
 
 
 
@@ -36,6 +37,7 @@ app.use('/users', users);
 
 app.use('/api/v1/campsites', campsites);
 app.use('/auth', auth);
+app.use('/location', location)
 
 
 // catch 404 and forward to error handler

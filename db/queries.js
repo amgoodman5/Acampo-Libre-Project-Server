@@ -128,7 +128,7 @@ module.exports = {
        },
     deleteCampsite: function(id) {
         return knex('campsite')
-        .del()
+         .del()
          .where('id', id)
 
         .then(result => {

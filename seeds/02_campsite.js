@@ -9,11 +9,7 @@ exports.seed = function(knex, Promise) {
         description: 'the best spot',
         picture: 'picture',
         confirmed: false,
-        video_url: '',
-        address:'1644 Platte St',
-        state:'CO',
-        lat:39.7576,
-        long:105.0070
+        video_url: ''
 
       }, {
         id: 2,
@@ -22,12 +18,7 @@ exports.seed = function(knex, Promise) {
         description: 'the best spot',
         picture: 'picture',
         confirmed: true,
-        video_url: '',
-        address:'16sdfasdfa',
-        state:'CO',
-        lat:39.7666,
-        long:105.0070
-
+        video_url: ''
       }];
       return knex('campsite').insert(campsites);
     });
