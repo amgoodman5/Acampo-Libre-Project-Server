@@ -18,3 +18,9 @@ exports.down = function(knex, Promise) {
   return knex.schema.dropTableIfExists('member');
 
 };
+
+//join locations
+//campsite approved that has
+//campsite id
+//approval id(memberid)
+//any location that has a members set to false

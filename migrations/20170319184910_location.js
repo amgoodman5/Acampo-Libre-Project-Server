@@ -11,6 +11,7 @@ exports.up = function(knex, Promise) {
     table.string('picture');
     table.boolean('confirmed').defaultTo(false);
     table.string('video_url');
+    //creater location table id fk
   });
 
 };
