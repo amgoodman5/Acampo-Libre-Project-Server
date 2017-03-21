@@ -7,12 +7,12 @@ var cookieSession = require('cookie-session');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var dotenv = require("dotenv").config();
-
 var auth = require('./auth')
 var campsites = require('./routes/campsites');
 var index = require('./routes/index');
 var users = require('./routes/users');
-var location = require('./routes/location')
+var location = require('./routes/location');
+var token = require('./routes/token');
 
 
 
@@ -28,16 +28,14 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
-app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', index);
 app.use('/users', users);
-
 app.use('/api/v1/campsites', campsites);
-app.use('/auth', auth);
 app.use('/location', location);
+app.use('/token', token);
 
 
 // catch 404 and forward to error handler

@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+  console.log(req.body);
     queries.createNewLocation(req.body)
       .then((id) => {
           res.json(id)
