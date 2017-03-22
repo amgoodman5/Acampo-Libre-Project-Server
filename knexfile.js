@@ -3,7 +3,7 @@ require('dotenv').config();
 module.exports = {
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/acampo'
+    connection: process.env.DEV_DATABASE_URL
   },
 
   production: {

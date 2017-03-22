@@ -139,7 +139,7 @@ module.exports = {
         });
     },
     deleteMember: function(id) {
-        return knex('Location')
+        return knex('member')
         .del()
          .where('id', id)
 
@@ -151,7 +151,7 @@ module.exports = {
         });
     },
     deleteLocation: function(id) {
-        return knex('Location')
+        return knex('location')
         .del()
          .where('id', id)
 

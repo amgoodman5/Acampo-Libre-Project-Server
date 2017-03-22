@@ -22,6 +22,13 @@ router.post('/', (req, res) => {
 
 });
 
+router.delete('/:id', function(req, res) {
+    queries.deleteLocation(req.body.id)
+        .then(() => {
+            res.json('Campsite Deleted');
+        });
+});
+
 module.exports = router;
 
 
